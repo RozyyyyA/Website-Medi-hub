@@ -202,7 +202,7 @@
   <div class="container">
     <h1>Manajer List</h1>
     <hr>
-    <a href="/manajer/register" class="btn btn-dark mb-1">Tambah Manajer</a>
+    <a href="/manajer/register" class="btn btn-primary mb-1">Tambah Manajer</a>
     <br>
     <table id="table">
       <Thead>

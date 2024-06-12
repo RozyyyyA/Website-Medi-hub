@@ -137,13 +137,14 @@
 
   <div class="header">
     <div class="container">
-      <h1 class="display-4">Supplier Profile</h1>
-      <p><a href="<?= base_url('/') ?>" class="home-link">Home</a> > Supplier Profile</p>
+        <h1 class="display-4">Supplier Profile</h1>
+        <p><a href="<?= base_url('/') ?>" class="home-link btn btn-unstyled">Home</a> > Supplier Profile</p>
     </div>
   </div>
 
   <div class="container">
     <h2>Supplier Profile</h2>
+    <hr>
     <div class="profile-card">
       <img id="avatar" src="" alt="Supplier Avatar">
       <div class="profile-info">

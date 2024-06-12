@@ -22,7 +22,7 @@
       padding: 20px;
     }
     .welcome-section {
-      background-color: #007bff;
+      background-color: #212529;
       color: white;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
@@ -63,7 +63,7 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
           </div>
-          <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+          <button type="submit" class="btn btn-dark w-100 mb-3">Login</button>
           <div class="text-center">
             <p>Belum punya akun? <a href="/register">Daftar di sini</a></p>
           </div>
@@ -71,6 +71,8 @@
       </div>
     </div>
   </div>
+
+  <script src="/cookies.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
     // Fade-in animation on page load

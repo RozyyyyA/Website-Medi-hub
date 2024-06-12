@@ -157,7 +157,7 @@
   <div class="container">
     <h1>News List</h1>
     <hr>
-    <a href="/news/add" class="btn btn-dark mb-1">Tambah News</a>
+    <a href="/news/add" class="btn btn-primary mb-1">Tambah News</a>
     <table id="newsTable" class="table">
       <thead>
         <tr>

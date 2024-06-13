@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supplier Detail</title>
+  <title>Medi-hub | Supplier Detail</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <style>
     body {
@@ -51,8 +51,10 @@
       object-fit: cover; 
     }
     .btn-container {
-      margin-top: 20px;
+      margin-top: 0px;
+      margin-bottom: 40px;
       text-align: center;
+      height: 120px,
     }
     .data-empty {
       color: #dc3545;
@@ -93,44 +95,44 @@
           </tr>
           <tr>
             <th>Data Pendukung:</th>
-            <td><span id="data"></span></td>
+            <td>
+              <div id="dataContainer"></div>
+            </td>
           </tr>
         </table>
       </div>
-      <div id="dataEmptyContainer" class="text-center"></div> <!-- Letakkan di sini untuk data kosong -->
-      <div class="btn-container"></div> <!-- Letakkan di sini untuk tombol -->
+      <div class="btn-container"></div>
     </div>
   </div>
 
   <script src="/cookies.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
-      // Fade-in animation on page load
-      document.addEventListener('DOMContentLoaded', function() {
-          document.body.classList.add('fade-in');
-      });
-      // Fade-out animation on page transition
-      document.querySelectorAll('a').forEach(function(link) {
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('fade-in');
+    });
+
+    document.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function(event) {
-          const href = this.getAttribute('href');
-          if (href && href.startsWith('/')) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('/')) {
           event.preventDefault();
           document.body.classList.remove('fade-in');
           document.body.classList.add('fade-out');
           setTimeout(function() {
-              window.location.href = href;
+            window.location.href = href;
           }, 500);
-          }
+        }
       });
-      });
+    });
+
     const avatar = document.querySelector('#avatar');
     const nama = document.querySelector('#nama');
     const alamat = document.querySelector('#alamat');
     const telp = document.querySelector('#telp');
-    const jenis = document.querySelector('#jenis');
+    const tetap = document.querySelector('#tetap');
     const created_at = document.querySelector('#created_at');
-    const data = document.querySelector('#data');
-    const dataEmptyContainer = document.querySelector('#dataEmptyContainer');
+    const dataContainer = document.querySelector('#dataContainer');
     const btnContainer = document.querySelector('.btn-container');
 
     const url = new URL(window.location.href);
@@ -142,38 +144,40 @@
         'Authorization': 'Bearer ' + getCookie('token')
       }
     })
-    .then(res=>res.json())
-    .then(data=>{
-      if(data.status==false) {
-        alert('Hanya Manajer atau Administrator yang dapat melihat')
-        window.location.replace('/')
-      }else {
-        const supplier = JSON.parse(JSON.stringify(data.data))
-        avatar.src = supplier['avatar']!='' ? 'http://localhost:8080/images/suppliers/avatar/' + supplier['avatar'] : 'http://localhost:8080/images/suppliers/avatar/default.jpg'
-        nama.innerHTML = supplier['nama']
-        alamat.innerHTML = supplier['alamat']
-        telp.innerHTML = supplier['telp']
-        tetap.innerHTML = supplier['tetap']!=false ? 'Tetap' : 'Non Tetap'
-        created_at.innerHTML = supplier['created_at']
+    .then(res => res.json())
+    .then(data => {
+      if (data.status == false) {
+        alert('Hanya Manajer atau Administrator yang dapat melihat');
+        window.location.replace('/');
+      } else {
+        const supplier = JSON.parse(JSON.stringify(data.data));
+        avatar.src = supplier['avatar'] != '' ? 'http://localhost:8080/images/suppliers/avatar/' + supplier['avatar'] : 'http://localhost:8080/images/suppliers/avatar/default.jpg';
+        nama.innerHTML = supplier['nama'];
+        alamat.innerHTML = supplier['alamat'];
+        telp.innerHTML = supplier['telp'];
+        tetap.innerHTML = supplier['tetap'] != false ? 'Tetap' : 'Non Tetap';
+        created_at.innerHTML = supplier['created_at'];
 
-        if (supplier['data'] !== '') {
+        if (supplier['data'] != '') {
           const iframe = document.createElement('iframe');
           iframe.src = 'http://localhost:8080/images/suppliers/data/' + supplier['data'];
-          iframe.classList.add('w-100', 'mb-3');
-          iframe.style.height = '400px';
-          data.appendChild(iframe);
+          iframe.width = '100%';
+          iframe.height = '400';
+          dataContainer.appendChild(iframe);
         } else {
           const span = document.createElement('span');
-          span.className = 'data-empty';
           span.innerHTML = 'Data kosong';
-          dataEmptyContainer.appendChild(span);
+          span.className = 'data-empty';
+          dataContainer.appendChild(span);
         }
 
         if (supplier['tetap'] == false) {
           const btn = document.createElement('button');
           btn.innerHTML = 'Terima menjadi pegawai tetap';
-          btn.id = 'acceptBtn';
-          btn.className = 'btn btn-primary';
+          btn.id = 'btn';
+          btn.className = 'btn btn-secondary mt-3';
+          btnContainer.appendChild(btn);
+
           btn.addEventListener('click', () => {
             fetch('http://localhost:8080/api/supplier/accept/' + id, {
               headers: {
@@ -184,13 +188,19 @@
               body: '_method=PUT&pengajuan=0&tetap=1'
             })
             .then(res => res.json())
-            .then(data => data.status == true ? alert('Berhasil diterima') : alert('Gagal diterima'));
+            .then(data => {
+              if (data.status == true) {
+                alert('Berhasil diterima');
+                btn.remove();
+                tetap.innerHTML = 'Tetap';
+              } else {
+                alert('Gagal diterima');
+              }
+            });
           });
-          btnContainer.appendChild(btn);
         }
       }
     });
   </script>
 </body>
 </html>
-

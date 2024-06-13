@@ -165,7 +165,7 @@
 
     <!-- Services Section -->
     <div class="container services" style="margin: 40px;">
-        <h2 style="margin-top: 20px; margin-bottom: 40px;">~ Layanan Kami ~</h2>
+        <h2 style="margin-top: 20px; margin-bottom: 40px;">Layanan Kami</h2>
         <div class="row">
             <div class="col-md-4 service-item">
                 <img src="images/banner1.jpg" alt="Service 1">
@@ -187,7 +187,7 @@
 
     <!-- Products Section -->
     <div class="container products" style="margin: 40px;">
-        <h2 style="margin-top: 20px; margin-bottom: 40px;">~ Produk Kami ~</h2>
+        <h2 style="margin-top: 20px; margin-bottom: 40px;">Produk Kami</h2>
         <div class="row">
             <div class="col-md-4 product-item">
                 <img src="images/banner1.jpg" alt="Product 1">
@@ -209,7 +209,7 @@
 
     <!-- News Section -->
     <div class="container news" style="margin: 40px;">
-        <h2 style="margin-top: 20px; margin-bottom: 40px;"2>~ Berita Terbaru ~</h2>
+        <h2 style="margin-top: 20px; margin-bottom: 40px;"2>Berita Terbaru</h2>
         <div id="news" class="row news"></div>
     </div>
 

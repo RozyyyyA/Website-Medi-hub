@@ -187,10 +187,10 @@
           tdNama.textContent = supplier.nama || 'Tidak diketahui'
 
           const tdTetap = document.createElement('td')
-          tdTetap.textContent = supplier.tetap ? 'Tetap' : 'Non Tetap'
+          tdTetap.textContent = supplier.tetap == true ? 'Tetap' : 'Non Tetap'
 
           const tdStatus = document.createElement('td')
-          tdStatus.textContent = supplier.pengajuan ? 'Mengajukan' : ''
+          tdStatus.textContent = supplier.pengajuan == true ? 'Mengajukan' : ''
 
           const btnDetail = document.createElement('a')
           btnDetail.textContent = 'Detail'

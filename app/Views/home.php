@@ -168,17 +168,17 @@
         <h2 style="margin-top: 20px; margin-bottom: 40px;">Layanan Kami</h2>
         <div class="row">
             <div class="col-md-4 service-item">
-                <img src="images/banner1.jpg" alt="Service 1">
+                <img src="images/pelayanan3.jpg" alt="Service 1">
                 <h3>Pengelolaan Produk</h3>
                 <p>Menyediakan solusi pengelolaan produk medis yang efisien dan terpercaya.</p>
             </div>
             <div class="col-md-4 service-item">
-                <img src="images/banner2.jpg" alt="Service 2">
+                <img src="images/pelayanan2.jpg" alt="Service 2">
                 <h3>Distribusi Cepat</h3>
                 <p>Distribusi produk medis yang cepat dan aman ke seluruh penjuru.</p>
             </div>
             <div class="col-md-4 service-item">
-                <img src="images/banner3.jpg" alt="Service 3">
+                <img src="images/pelayanan1.jpg" alt="Service 3">
                 <h3>Dukungan Pelanggan</h3>
                 <p>Dukungan pelanggan 24/7 untuk memastikan kepuasan dan bantuan yang dibutuhkan.</p>
             </div>
@@ -190,17 +190,17 @@
         <h2 style="margin-top: 20px; margin-bottom: 40px;">Produk Kami</h2>
         <div class="row">
             <div class="col-md-4 product-item">
-                <img src="images/banner1.jpg" alt="Product 1">
+                <img src="images/produk1.jpg" alt="Product 1">
                 <h3>Alat Medis</h3>
                 <p>Berbagai alat medis berkualitas tinggi untuk berbagai keperluan.</p>
             </div>
             <div class="col-md-4 product-item">
-                <img src="images/banner2.jpg" alt="Product 2">
+                <img src="images/produk2.jpg" alt="Product 2">
                 <h3>Peralatan Bedah</h3>
                 <p>Peralatan bedah terbaru dengan teknologi mutakhir.</p>
             </div>
             <div class="col-md-4 product-item">
-                <img src="images/banner3.jpg" alt="Product 3">
+                <img src="images/produk3.jpg" alt="Product 3">
                 <h3>Farmasi</h3>
                 <p>Produk farmasi yang lengkap dan terpercaya untuk semua kebutuhan medis.</p>
             </div>
